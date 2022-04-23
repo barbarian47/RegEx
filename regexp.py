@@ -23,15 +23,10 @@ def create_phonebook(dict_person):
 
 # Converts the phone number to the required format
 def format_phone(phone_number):
-    pattern = r'(\+7|8)\s*\(*(d{3}|\d{3})\)*(-|\s)*(\d+)(-|\s)*(\d{2})'
-    pattern += '(-|\s)*(\d{2})\s*\(*([доб.]*\s*\d*)\)*'
-    pattern_res = r'+7(\2)\4-\6-\8 \9'
+    pattern = r'(\+7|8)\s*\(*(d{3}|\d{3})\)*(-|\s)*(\d+)(-|\s)*(\d{2})(-|\s)*'
+    pattern += '(\d{2})\s*\(*(доб.)*\s*(\d*)\)*'
+    pattern_res = r'+7(\2)\4-\6-\8 \9\10'
     phone = re.sub(pattern, pattern_res, phone_number)
-    phone = phone.split()
-    if len(phone) == 3:
-        phone = phone[0] + ' ' + phone[1] + phone[2]
-    elif len(phone) == 1:
-        phone = phone[0]
     
     return phone
 
