@@ -26,7 +26,7 @@ def format_phone(phone_number):
     pattern = r'(\+7|8)\s*\(*(d{3}|\d{3})\)*(-|\s)*(\d+)(-|\s)*(\d{2})(-|\s)*'
     pattern += '(\d{2})\s*\(*(доб.)*\s*(\d*)\)*'
     pattern_res = r'+7(\2)\4-\6-\8 \9\10'
-    phone = re.sub(pattern, pattern_res, phone_number)
+    phone = re.sub(pattern, pattern_res, phone_number).strip()
     
     return phone
 
